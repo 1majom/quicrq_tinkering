@@ -158,6 +158,7 @@ static quicrq_reassembly_packet_t* quicrq_reassembly_object_create_packet(
             packet->data_length = data_length;
             packet->data = ((uint8_t*)packet) + sizeof(quicrq_reassembly_packet_t);
             memcpy(packet->data, data, data_length);
+            printf("%ld,%" PRIu64 "\n", data_length, picoquic_current_time());
 
             packet->previous_packet = previous_packet;
             if (previous_packet == NULL) {

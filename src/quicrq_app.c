@@ -132,7 +132,7 @@ int quicrq_app_loop_cb(picoquic_quic_t* quic, picoquic_packet_loop_cb_enum cb_mo
     else {
         switch (cb_mode) {
         case picoquic_packet_loop_ready:
-            fprintf(stdout, "Waiting for packets.\n");
+            //fprintf(stdout, "Waiting for packets.\n");
             if (callback_arg != NULL) {
                 picoquic_packet_loop_options_t* options = (picoquic_packet_loop_options_t*)callback_arg;
                 options->do_time_check |= 1;
@@ -512,7 +512,7 @@ int quic_app_loop(picoquic_quic_config_t* config,
     }
 
     /* And exit */
-    printf("Quicrq_app loop exit, ret = %d (0x%x)\n", ret, ret);
+    //printf("Quicrq_app loop exit, ret = %d (0x%x)\n", ret, ret);
     /* Release the media sources*/
     quicrq_app_free_sources(&cb_ctx);
     /* Free the quicrq context */
@@ -566,7 +566,7 @@ int main(int argc, char** argv)
     WSADATA wsaData = { 0 };
     (void)WSA_START(MAKEWORD(2, 2), &wsaData);
 #endif
-    fprintf(stdout, "QUICRQ Version %s, Picoquic Version %s\n", QUICRQ_VERSION, PICOQUIC_VERSION);
+    //fprintf(stdout, "QUICRQ Version %s, Picoquic Version %s\n", QUICRQ_VERSION, PICOQUIC_VERSION);
 
     picoquic_config_init(&config);
     memcpy(option_string, "f:u:", 5);

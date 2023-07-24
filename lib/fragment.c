@@ -929,6 +929,7 @@ int quicrq_fragment_datagram_publisher_send_fragment(
                     /* Push the header */
                     if (ret == 0) {
                         memcpy(buffer, datagram_header, h_size);
+                        printf("%ld,%" PRIu64 "\n", copied, picoquic_current_time());
                         /* Get the media */
                         if (copied > 0) {
                             memcpy(((uint8_t*)buffer) + h_size, media_ctx->current_fragment->data + media_ctx->length_sent, copied);
